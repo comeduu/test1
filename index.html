@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나의 자기소개 페이지</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background: linear-gradient(135deg, #fff3b0, #ffd6e0, #cdeffd);
+      color: #333;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 35px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 19px;
+    }
+
+    .emoji {
+      font-size: 70px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 14px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card .icon {
+      font-size: 55px;
+    }
+
+    .card h2 {
+      margin: 15px 0;
+    }
+
+    .food {
+      border-top: 8px solid #ff8a80;
+    }
+
+    .hobby {
+      border-top: 8px solid #80d8ff;
+    }
+
+    .dream {
+      border-top: 8px solid #ffd54f;
+    }
+
+    .message {
+      margin-top: 35px;
+      padding: 25px;
+      background: white;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      border: none;
+      background: #6c63ff;
+      color: white;
+      padding: 12px 22px;
+      font-size: 16px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5148e5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+    }
+
+    /* 스마트폰에서는 카드를 세로로 보여주기 */
+    @media (max-width: 700px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="emoji">😎</div>
+
+    <!-- ⭐ 학생이 자신의 이름으로 바꾸기 -->
+    <h1>안녕! 나는 김하늘이야!</h1>
+
+    <!-- ⭐ 자기소개 한마디 -->
+    <p>새로운 것을 배우는 걸 좋아하는 중학교 1학년입니다 ✨</p>
+  </header>
+
+  <main class="container">
+
+    <section class="cards">
+
+      <!-- 좋아하는 음식 -->
+      <div class="card food">
+        <div class="icon">🍕</div>
+        <h2>좋아하는 음식</h2>
+
+        <!-- ⭐ 좋아하는 음식으로 바꾸기 -->
+        <p>
+          내가 가장 좋아하는 음식은
+          <strong>피자</strong>야!
+        </p>
+
+        <p>특히 치즈가 많이 들어간 피자를 좋아해. 😋</p>
+      </div>
+
+
+      <!-- 취미 -->
+      <div class="card hobby">
+        <div class="icon">🎮</div>
+        <h2>나의 취미</h2>
+
+        <!-- ⭐ 자신의 취미로 바꾸기 -->
+        <p>
+          내 취미는
+          <strong>게임하기</strong>와
+          <strong>축구하기</strong>야.
+        </p>
+
+        <p>친구들과 함께하면 더 재미있어! ⚽</p>
+      </div>
+
+
+      <!-- 장래희망 -->
+      <div class="card dream">
+        <div class="icon">🚀</div>
+        <h2>나의 장래희망</h2>
+
+        <!-- ⭐ 자신의 장래희망으로 바꾸기 -->
+        <p>
+          나의 꿈은
+          <strong>게임 개발자</strong>가 되는 거야!
+        </p>
+
+        <p>사람들이 즐길 수 있는 재미있는 게임을 만들고 싶어.</p>
+      </div>
+
+    </section>
+
+
+    <section class="message">
+
+      <h2>💬 나에게 한마디!</h2>
+
+      <p id="hello">
+        버튼을 눌러보세요!
+      </p>
+
+      <button onclick="sayHello()">
+        눌러보기 👆
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    🌈 김하늘의 첫 번째 웹페이지 🌈
+  </footer>
+
+
+  <script>
+    function sayHello() {
+      const messages = [
+        "만나서 반가워! 😆",
+        "오늘도 즐거운 하루 보내! 🌞",
+        "코딩은 생각보다 재미있어! 💻",
+        "내 홈페이지에 와줘서 고마워! 🎉",
+        "우리 같이 멋진 걸 만들어보자! 🚀"
+      ];
+
+      const randomNumber =
+        Math.floor(Math.random() * messages.length);
+
+      document.getElementById("hello").innerText =
+        messages[randomNumber];
+    }
+  </script>
+
+</body>
+</html>
